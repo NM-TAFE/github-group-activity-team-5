@@ -10,6 +10,10 @@
     />
   </head>
   <body>
+    <div class="panels">
+    <div class="player_X_stats">
+        <h1>panel1</h1>
+    </div>
     <div class="container">
       <h1>Tic Tac Toe</h1>
       <div class="board">
@@ -27,6 +31,10 @@
       <p class="current-player">Current Player: {{ current_player }}</p>
       {% endif %}
       <a href="{{ url_for('reset') }}" class="reset-button">Reset Game</a>
+    </div>
+    <div class="player_X_stats">
+        <h1>panel 3</h1>
+    </div>
     </div>
   </body>
 </html>
