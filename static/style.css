@@ -15,10 +15,12 @@ body {
 
 .player_X_stats {
   width: 25%;
+  text-align: left;
 }
 
 .player_O_stats {
   width: 25%;
+  text-align: right;
 }
 
 .container {
@@ -35,11 +37,11 @@ body {
 }
 
 .cell {
+  aspect-ratio: 1/1;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100px;
   background-color: #fff;
   border: 1px solid #ccc;
   font-size: 2em;
