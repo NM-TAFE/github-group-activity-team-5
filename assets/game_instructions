@@ -1,0 +1,4 @@
+Starting the Game: The first player places their mark (X or O) in an empty cell of the grid.
+Turns: Players take turns placing their marks whether it be (X or 0) in empty cells.
+Winning Condition: The game is won if a player manages to place three of their marks in a row horizontally, vertically, or diagonally.
+Draw: If all cells are filled and no player has three in a row, the game ends in a draw.
