@@ -33,7 +33,7 @@ A simple Tic Tac Toe game built with Python and Flask. This application allows t
 3. **Run the application:**
 
    ```bash
-   python app.py
+   python main.py
    ```
 
 4. **Open your web browser:**
