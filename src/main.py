@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 
 from game_condition_checker import GameCondition
 from game_logic import GameLogic
@@ -20,7 +20,16 @@ def index():
 @app.route('/play/<int:cell>')
 def play(cell):
     game.play_turn(cell)
-    return redirect(url_for('index'))
+    winner = game_condition.check_win()
+    draw = game_condition.check_draw()
+
+    # JSON data for frontend to handle (sound implemenation)
+    return jsonify({
+        'board': game.board,
+        'current_player': game.current_player,
+        'winner': winner,
+        'draw': draw
+    })
 
 
 @app.route('/reset')
