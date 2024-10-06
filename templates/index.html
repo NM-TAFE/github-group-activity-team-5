@@ -11,22 +11,80 @@
   </head>
   <body>
     <div class="container">
-      <h1>Tic Tac Toe</h1>
-      <div class="board">
-        {% for index in range(9) %}
-        <a href="{{ url_for('play', cell=index) }}" class="cell"
-          >{{ board[index] }}</a
-        >
-        {% endfor %}
+      <!-- Header Section -->
+       <div class="page-header">
+        <h1>Tic Tac Toe</h1>
       </div>
-      {% if winner %}
-      <p class="result">Player {{ winner }} wins!</p>
-      {% elif draw %}
-      <p class="result">It's a draw!</p>
-      {% else %}
-      <p class="current-player">Current Player: {{ current_player }}</p>
-      {% endif %}
-      <a href="{{ url_for('reset') }}" class="reset-button">Reset Game</a>
+    
+
+      <div class="information">
+        <!-- About Section -->
+        <div class="about">
+          <h2>About</h2>
+          <p>
+            Welcome to Tic Tac Toe! This is a simple and exciting two-player game
+            where each player takes turns marking a space in a 3x3 grid. The first
+            player to get three of their marks in a row (vertically, horizontally,
+            or diagonally) wins!
+          </p>
+
+          <p>Are you ready to play?</p>
+
+          <p>Good luck and have fun!</p>
+        </div>
+
+        <!-- Instructions Section -->
+        <div class="instructions">
+          <h2>Instructions</h2>
+          <p>Follow these steps to play the game:</p>
+          <ol>
+            <li>Click on any cell in the grid to make your move.</li>
+            <li>Players alternate turns, with one playing "X" and the other "O".</li>
+            <li>The game ends when a player gets three marks in a row or when all cells are filled.</li>
+            <li>If the game is a draw, you can reset and try again!</li>
+          </ol>
+        </div>
+      </div>
+      
+
+      <div class="game-display">
+
+        <h2>Game Board</h2>
+        <!-- Board -->
+        <div class="board">
+          {% for index in range(9) %}
+          <a href="{{ url_for('play', cell=index) }}" class="cell">{{ board[index] }}</a>
+          {% endfor %}
+        </div>
+
+        <!-- Result Section -->
+        <div class="result">
+          {% if winner %}
+          <p>Player {{ winner }} wins!</p>
+          {% elif draw %}
+          <p>It's a draw!</p>
+          {% else %}
+          <p>Current Player: {{ current_player }}</p>
+          {% endif %}
+        </div>
+
+        <!-- Reset Button -->
+        <a href="{{ url_for('reset') }}" class="reset-button">Reset Game</a>
+      </div>
+
+      <div class="player-stats">
+        <h3>Player Stats:</h3>
+        Currently Not Available 
+      </div>
+
+      <!-- Footer Section -->
+      <footer class="footer">
+        <p>&copy; 2024 Tic Tac Toe Game. Created by Anthony, Yehor, Khoi and Sahan.</p>
+        <p>
+          NMTAFE | Cert IV Programming | Semester 2
+        </p>
+      </footer>
     </div>
+
   </body>
 </html>
