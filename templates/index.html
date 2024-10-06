@@ -95,7 +95,6 @@
     </div>
 
     <script>
-      
       document.addEventListener("DOMContentLoaded", function() {
         const clickSound = document.getElementById("click-sound");
         const cells = document.querySelectorAll(".cell");
@@ -104,25 +103,42 @@
           cell.addEventListener("click", function(event) {
             event.preventDefault(); 
             const cellId = this.getAttribute("href");
-      
+    
             // Play sound
             clickSound.play().catch(error => {
               console.error("Failed to play sound:", error);
             });
-      
-            // move to server using AJAX
+    
+            // Send move to server using AJAX
             fetch(cellId, {
               method: 'GET'
-            }).then(response => response.text()).then(data => {
-              // Update the game state: debugging logs
+            })
+            .then(response => response.json())  // JSON response
+            .then(data => {
+              // data for debugging
               console.log('Move processed:', data);
-            }).catch(error => {
+    
+              // game board dynamic
+              data.board.forEach((value, index) => {
+                const cellElement = document.getElementById(`cell-${index}`);
+                cellElement.textContent = value;  // Update the cell with "X" or "O"
+              });
+    
+              // Update the current player or result
+              if (data.winner) {
+                document.querySelector('.result').textContent = `Player ${data.winner} wins!`;
+              } else if (data.draw) {
+                document.querySelector('.result').textContent = "It's a draw!";
+              } else {
+                document.querySelector('.result').textContent = `Current Player: ${data.current_player}`;
+              }
+            })
+            .catch(error => {
               console.error("Error:", error);
             });
           });
         });
       });
-           
     </script>
     
   </body>
