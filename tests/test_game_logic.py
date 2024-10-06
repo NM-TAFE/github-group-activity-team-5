@@ -18,3 +18,6 @@ class TestGameLogic(unittest.TestCase):
         game.play_turn(0)  # Player 1 ('X') plays turn at cell 0
         game.play_turn(0)  # Invalid move (cell 0 is already taken)
         self.assertEqual(game.board[0], 'X')  # Cell 0 should still have 'X'
+
+
+# This test can be found at test/test_game_condition branch
